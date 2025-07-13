@@ -8,7 +8,10 @@ class AIHintGenerator:
     def __init__(self):
         self.api_key = os.getenv("GEMINI_API_KEY")
         if not self.api_key:
-            raise ValueError("GEMINI_API_KEY environment variable not set")
+            print("Warning: GEMINI_API_KEY not set, AI hints will be disabled")
+            self.enabled = False
+        else:
+            self.enabled = True
     
     async def generate_hint(self, quest_id: str, user_code: str, user_progress: Dict) -> str:
         """Generate an AI-powered hint for the user"""
