@@ -15,6 +15,9 @@ class AIHintGenerator:
     
     async def generate_hint(self, quest_id: str, user_code: str, user_progress: Dict) -> str:
         """Generate an AI-powered hint for the user"""
+        if not self.enabled:
+            return "AI hints are currently unavailable. Please check your code and try different approaches based on the quest instructions."
+        
         try:
             # Get quest information
             quest = await get_quest_by_id(quest_id)
