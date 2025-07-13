@@ -103,6 +103,9 @@ Please provide a helpful hint to guide this user toward completing the quest. Fo
     
     async def generate_explanation(self, quest_id: str, concept: str) -> str:
         """Generate an explanation for a specific Python concept"""
+        if not self.enabled:
+            return f"AI explanations are currently unavailable. Please search for '{concept}' in Python documentation."
+        
         try:
             chat = LlmChat(
                 api_key=self.api_key,
