@@ -12,7 +12,8 @@ import {
   ArrowLeft,
   Code,
   Trophy,
-  Timer
+  Timer,
+  X
 } from 'lucide-react';
 import Editor from '@monaco-editor/react';
 import toast from 'react-hot-toast';
